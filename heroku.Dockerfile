@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Prune devDependencies
-RUN npm prune --production
+RUN npm prune --production --legacy-peer-deps
 
 # Check if important dependencies is healthy
 RUN YOUTUBE_DL_FILENAME="yt-dlp" node -p "console.log((require('prism-media').FFmpeg).getInfo());(require('youtube-dl-exec'))('--version').then(console.log)"
